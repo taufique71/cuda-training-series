@@ -18,6 +18,10 @@
 - Typically all of these steps are done by calling some functions from code running in host system
     - The function that is called with from host system to perform the second step is called GPU kernel
 
+#### GPU Memory Handling
+- `cudaMalloc` -  allocates memory in device
+- `cudaMemcpy` - copies data from host to device as well as device to host
+- `cudaFree` - frees allocated memory in device
 
 #### GPU Kernel: Device code
 ```
@@ -25,14 +29,25 @@ __global__ void mykernel(void){
     // Some computation
 }
 ```
-- Code needs to be compiled with `nvcc` compiler
+- `__global__` denotes the function to be GPU kernel
+- `nvcc` is the compiler to be used
     - Any function with `__global__` infront is compiled by under the hood GPU compiler of `nvcc`
-    - Other codes are compiled by host compiler - gcc, microsoft visual c++ etc. (nvcc takes care of that)
-- GPU kernel needs to be launched by syntax `mykernel<<<1,1>>>()`
+    - Other codes are compiled by host compiler - gcc, microsoft visual c++ etc. (nvcc takes care of that as well)
+- GPU kernel needs to be launched by syntax `mykernel<<<x,y>>>()`
     - Any function call having `<<<x,y>>>` is compiled by under the hood GPU compiler` of `nvcc`
-    - Other function calls are compiled by host compiler (again taken care by `nvcc`)
+    - Other function calls are compiled by host compiler (similarly)
+    - `<<<x,y>>>` is called kernel launch configuration
+        - denotes how many GPU threads to be launched - `x` blocks each having `y` threads - total `xy` threads
+        - `x` and `y` can be of type `int` or `dim3` 
+            - `int` for 1D thread blocks and grids
+            - `dim3` for 2D and 3D thread blocks and grids
 
-#### GPU Memory Handling
-- `cudaMalloc`
-- `cudaMemcpy`
-- `cudaFree`
+#### Thread hierarchy
+- Whole set of threads are organized as a grid
+- A grid is made of thread blocks
+    - Grid can be 1D, 2D or 3D
+- A thread block is made of threads
+    - A thread block can be 1D, 2D or 3D
+- Threads in the same block can synchronize with each other
+- Threads in different block can't synchronize and must execute completely in parallel
+
