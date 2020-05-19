@@ -45,6 +45,8 @@ srun -n 1 ./vector_add
 ```
 
 Note that you only need to `module load esslurm` once per login session; this is what enables you to submit to the Cori GPU nodes.
+Also note that you need to get rid of `--reservation cuda_training` part if you are running your code after reservation time is finished.
+Reservation starts at the start of each presentation and finishes after the hands on exercise session following the presentation.
 
 
 We've also changed the problem size from the previous example, so correct output should look like this:
@@ -90,6 +92,10 @@ If you'd like to get a basic idea of "typical" profiler output, you could use th
 
 ```
 jsrun -n1 -a1 -c1 -g1 nv-nsight-cu-cli ./vector_add
+```
+To use srun in Cori use following command:
+```
+srun -C gpu -N 1 -n 1 -t 10 -A m3502 --gres=gpu:1 -c 10 nv-nsight-cu-cli ./vector_add
 ```
 
 However for this 1 block/1 thread test case, the profiler will spend several minutes assembling the requested set of information.  Since our focus is on kernel duration, we can use a command that allows the profiler to run more quickly:

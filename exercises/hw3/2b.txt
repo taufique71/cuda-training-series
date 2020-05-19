@@ -1,0 +1,46 @@
+==PROF== Connected to process 72000 (/global/u1/t/taufique/Codes/study-notes/CUDA_Training/exercises/hw3/vector_add)
+==PROF== Profiling "vadd" - 1: 0%....50%....100%A[0] = 0.840188
+B[0] = 0.394383
+C[0] = 1.234571
+ - 17 passes
+==PROF== Disconnected from process 72000
+[72000] vector_add@127.0.0.1
+  vadd(float const *,float const *,float*,int), 2020-May-19 09:54:26, Context 1, Stream 7
+    Section: GPU Speed Of Light
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Memory Frequency                                                         cycle/usecond                         875.31
+    SOL FB                                                                               %                           2.87
+    Elapsed Cycles                                                                   cycle                       20554861
+    SM Frequency                                                             cycle/nsecond                           1.31
+    Memory [%]                                                                           %                           2.87
+    Duration                                                                       msecond                          15.70
+    SOL L2                                                                               %                           1.00
+    SM Active Cycles                                                                 cycle                      257390.81
+    SM [%]                                                                               %                           0.19
+    SOL TEX                                                                              %                          40.74
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
+    Section: Launch Statistics
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Block Size                                                                                                       1024
+    Grid Size                                                                                                           1
+    Registers Per Thread                                                   register/thread                             16
+    Shared Memory Configuration Size                                                  byte                              0
+    Dynamic Shared Memory Per Block                                             byte/block                              0
+    Static Shared Memory Per Block                                              byte/block                              0
+    Threads                                                                         thread                           1024
+    Waves Per SM                                                                                                     0.01
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
+    Section: Occupancy
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Block Limit SM                                                                   block                             32
+    Block Limit Registers                                                            block                              4
+    Block Limit Shared Mem                                                           block                             32
+    Block Limit Warps                                                                block                              2
+    Achieved Active Warps Per SM                                                      warp                          31.70
+    Achieved Occupancy                                                                   %                          49.53
+    Theoretical Active Warps per SM                                             warp/cycle                             64
+    Theoretical Occupancy                                                                %                            100
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
