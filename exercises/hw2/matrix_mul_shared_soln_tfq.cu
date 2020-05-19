@@ -125,17 +125,17 @@ int main(){
   // Copy results back to host
   cudaMemcpy(h_C, d_C, DSIZE*DSIZE*sizeof(float), cudaMemcpyDeviceToHost);
 
-  // GPU timing
-  t2 = clock();
-  t2sum = ((double)(t2-t1))/CLOCKS_PER_SEC;
-  printf ("Done without shared memory. Compute took %f seconds\n", t2sum);
-
   // Cuda processing sequence step 3 is complete
   // Free all memory in allocated in GPU
   cudaFree(d_A);
   cudaFree(d_B);
   cudaFree(d_C);
-    
+
+  // GPU timing
+  t2 = clock();
+  t2sum = ((double)(t2-t1))/CLOCKS_PER_SEC;
+  printf ("Done without shared memory. Compute took %f seconds\n", t2sum);
+
   // Start shared memory multiplication //
 
   // Allocate device memory and copy input data over to GPU
