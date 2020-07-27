@@ -99,8 +99,15 @@ __global__ void mykernel(void){
             - performance problem: same data is being read from memory multiple times
         - solution 2: read all data items that are needed by the threads inside the block only once from global memory to shared memory
         
-# Basic CUDA Optimization
-## Launch configuration (lots of threads for latency hiding)
-## Global memory throughput (use memory throughput)
-## Shared memory access
+# Fundamental CUDA Optimization
+## Expose a lot of parallelism
+    - Launch configuration (lots of threads for latency hiding)
+## Make efficient use of memory subsystem
+    - Global memory throughput (use memory throughput)
+    - Shared memory access
 
+# Atomics, Reductions, Warp Shuffle
+
+# Managed Memory
+
+# CUDA Concurrency

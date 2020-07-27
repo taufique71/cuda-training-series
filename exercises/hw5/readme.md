@@ -46,6 +46,11 @@ srun -n 1 ./reductions
 
 Note that you only need to `module load esslurm` once per login session; this is what enables you to submit to the Cori GPU nodes.
 
+For profiling run followng command:
+```
+srun -C gpu -N 1 -n 1 -t 10 -A m3502 --reservation cuda_training --gres=gpu:1 -c 10 nv-nsight-cu-cli ./reductions
+```
+
 This will run the code with the profiling in its most basic mode, which is sufficient. We want to compare kernel execution times. What do you notice about kernel execution times? Probably, you won't see much difference between the parallel reduction with atomics and the warp shuffle with atomics kernel. Can you theorize why this may be? Our objective with these will be to approach theoretical limits. The theoretical limit for a typical reduction would be determined by the memory bandwidth of the GPU. To calculate the attained memory bandwidth of this kernel, divide the total data size in bytes (use N from the code in your calculation) by the execution time (which you can get from the profiler). How does this number compare to the memory bandwidth of the GPU you are running on? (You could run bandwidthTest sample code to get a proxy/estimate).
 
 Now edit the code to change *N* from ~8M to 163840 (=640*256)

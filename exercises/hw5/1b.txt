@@ -1,0 +1,126 @@
+==PROF== Connected to process 72096 (/global/u1/t/taufique/Codes/study-notes/CUDA_Training/exercises/hw5/reductions)
+==PROF== Profiling "atomic_red" - 1: 0%....50%....100% - 17 passes
+==PROF== Profiling "reduce_a" - 2: 0%....50%....100% - 17 passes
+==PROF== Profiling "reduce_ws" - 3: 0%....50%....100%atomic sum reduction correct!
+reduction w/atomic sum correct!
+reduction warp shuffle sum correct!
+ - 17 passes
+==PROF== Disconnected from process 72096
+[72096] reductions@127.0.0.1
+  atomic_red(float const *,float*), 2020-May-19 12:16:11, Context 1, Stream 7
+    Section: GPU Speed Of Light
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Memory Frequency                                                         cycle/usecond                         875.43
+    SOL FB                                                                               %                           0.34
+    Elapsed Cycles                                                                   cycle                         518091
+    SM Frequency                                                             cycle/nsecond                           1.31
+    Memory [%]                                                                           %                           1.03
+    Duration                                                                       usecond                         395.62
+    SOL L2                                                                               %                           1.03
+    SM Active Cycles                                                                 cycle                      480287.29
+    SM [%]                                                                               %                           0.40
+    SOL TEX                                                                              %                           0.47
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
+    Section: Launch Statistics
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Block Size                                                                                                        256
+    Grid Size                                                                                                         640
+    Registers Per Thread                                                   register/thread                             16
+    Shared Memory Configuration Size                                                  byte                              0
+    Dynamic Shared Memory Per Block                                             byte/block                              0
+    Static Shared Memory Per Block                                              byte/block                              0
+    Threads                                                                         thread                         163840
+    Waves Per SM                                                                                                        1
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
+    Section: Occupancy
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Block Limit SM                                                                   block                             32
+    Block Limit Registers                                                            block                             16
+    Block Limit Shared Mem                                                           block                             32
+    Block Limit Warps                                                                block                              8
+    Achieved Active Warps Per SM                                                      warp                          31.93
+    Achieved Occupancy                                                                   %                          49.90
+    Theoretical Active Warps per SM                                             warp/cycle                             64
+    Theoretical Occupancy                                                                %                            100
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
+  reduce_a(float*,float*), 2020-May-19 12:16:12, Context 1, Stream 7
+    Section: GPU Speed Of Light
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Memory Frequency                                                         cycle/usecond                         762.03
+    SOL FB                                                                               %                          25.78
+    Elapsed Cycles                                                                   cycle                           6758
+    SM Frequency                                                             cycle/nsecond                           1.13
+    Memory [%]                                                                           %                          30.58
+    Duration                                                                       usecond                           5.98
+    SOL L2                                                                               %                           5.33
+    SM Active Cycles                                                                 cycle                        4612.66
+    SM [%]                                                                               %                          35.30
+    SOL TEX                                                                              %                          44.76
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
+    Section: Launch Statistics
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Block Size                                                                                                        256
+    Grid Size                                                                                                         640
+    Registers Per Thread                                                   register/thread                             16
+    Shared Memory Configuration Size                                                 Kbyte                           8.19
+    Dynamic Shared Memory Per Block                                             byte/block                              0
+    Static Shared Memory Per Block                                             Kbyte/block                           1.02
+    Threads                                                                         thread                         163840
+    Waves Per SM                                                                                                        1
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
+    Section: Occupancy
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Block Limit SM                                                                   block                             32
+    Block Limit Registers                                                            block                             16
+    Block Limit Shared Mem                                                           block                             96
+    Block Limit Warps                                                                block                              8
+    Achieved Active Warps Per SM                                                      warp                          46.29
+    Achieved Occupancy                                                                   %                          72.33
+    Theoretical Active Warps per SM                                             warp/cycle                             64
+    Theoretical Occupancy                                                                %                            100
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
+  reduce_ws(float*,float*), 2020-May-19 12:16:12, Context 1, Stream 7
+    Section: GPU Speed Of Light
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Memory Frequency                                                         cycle/usecond                         763.31
+    SOL FB                                                                               %                          28.51
+    Elapsed Cycles                                                                   cycle                           6157
+    SM Frequency                                                             cycle/nsecond                           1.14
+    Memory [%]                                                                           %                          28.51
+    Duration                                                                       usecond                           5.41
+    SOL L2                                                                               %                           5.86
+    SM Active Cycles                                                                 cycle                        3619.20
+    SM [%]                                                                               %                          20.33
+    SOL TEX                                                                              %                          18.15
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
+    Section: Launch Statistics
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Block Size                                                                                                        256
+    Grid Size                                                                                                         640
+    Registers Per Thread                                                   register/thread                             16
+    Shared Memory Configuration Size                                                 Kbyte                           8.19
+    Dynamic Shared Memory Per Block                                             byte/block                              0
+    Static Shared Memory Per Block                                              byte/block                            128
+    Threads                                                                         thread                         163840
+    Waves Per SM                                                                                                        1
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
+    Section: Occupancy
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Block Limit SM                                                                   block                             32
+    Block Limit Registers                                                            block                             16
+    Block Limit Shared Mem                                                           block                            384
+    Block Limit Warps                                                                block                              8
+    Achieved Active Warps Per SM                                                      warp                          42.92
+    Achieved Occupancy                                                                   %                          67.07
+    Theoretical Active Warps per SM                                             warp/cycle                             64
+    Theoretical Occupancy                                                                %                            100
+    ---------------------------------------------------------------------- --------------- ------------------------------
+

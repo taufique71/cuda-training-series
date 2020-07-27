@@ -1,0 +1,47 @@
+==PROF== Connected to process 38384 (/global/u1/t/taufique/Codes/study-notes/CUDA_Training/exercises/hw5/reductions)
+==PROF== Profiling "atomic_red" - 1: 0%....50%....100%atomic sum reduction incorrect!
+ - 17 passes
+==PROF== Disconnected from process 38384
+==ERROR== The application returned an error code (255)
+[38384] reductions@127.0.0.1
+  atomic_red(float const *,float*), 2020-May-19 12:57:33, Context 1, Stream 7
+    Section: GPU Speed Of Light
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Memory Frequency                                                         cycle/usecond                         877.48
+    SOL FB                                                                               %                           0.19
+    Elapsed Cycles                                                                   cycle                      105493262
+    SM Frequency                                                             cycle/nsecond                           1.31
+    Memory [%]                                                                           %                           1.03
+    Duration                                                                       msecond                          80.37
+    SOL L2                                                                               %                           1.03
+    SM Active Cycles                                                                 cycle                   105437274.53
+    SM [%]                                                                               %                           0.40
+    SOL TEX                                                                              %                           0.44
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
+    Section: Launch Statistics
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Block Size                                                                                                        256
+    Grid Size                                                                                                      131072
+    Registers Per Thread                                                   register/thread                             16
+    Shared Memory Configuration Size                                                  byte                              0
+    Dynamic Shared Memory Per Block                                             byte/block                              0
+    Static Shared Memory Per Block                                              byte/block                              0
+    Threads                                                                         thread                       33554432
+    Waves Per SM                                                                                                   204.80
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
+    Section: Occupancy
+    ---------------------------------------------------------------------- --------------- ------------------------------
+    Block Limit SM                                                                   block                             32
+    Block Limit Registers                                                            block                             16
+    Block Limit Shared Mem                                                           block                             32
+    Block Limit Warps                                                                block                              8
+    Achieved Active Warps Per SM                                                      warp                          54.95
+    Achieved Occupancy                                                                   %                          85.86
+    Theoretical Active Warps per SM                                             warp/cycle                             64
+    Theoretical Occupancy                                                                %                            100
+    ---------------------------------------------------------------------- --------------- ------------------------------
+
+srun: error: cgpu03: task 0: Exited with exit code 255
+srun: Terminating job step 671476.0
