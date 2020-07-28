@@ -101,13 +101,14 @@ __global__ void mykernel(void){
         
 # Fundamental CUDA Optimization
 ## Expose a lot of parallelism
-    - Launch configuration (lots of threads for latency hiding)
+- Launch configuration (lots of threads for latency hiding)
 ## Make efficient use of memory subsystem
-    - Global memory throughput (use memory throughput)
-    - Shared memory access
+- Global memory throughput (try to achieve coalesced memory access)
+- Shared memory access (allocate shared mem in such a way so that each thread in the warp access from different bank)
 
 # Atomics, Reductions, Warp Shuffle
 
 # Managed Memory
 
 # CUDA Concurrency
+
